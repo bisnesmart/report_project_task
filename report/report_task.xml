@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+      <!--Creo la opcion de imprimir en ela pantalla de proyectos-->
+         <report id="task_report"
+               string="Project task report"
+               model="project.project"
+               name="report_project_task.check_task_report"
+               report_type="qweb-pdf"/>
+
+    <template id="check_task_report">
+        <t t-call="report.html_container">
+          <t t-foreach="docs" t-as="o">
+            <div class="col-xs-6 col-xs-offset-1">
+            <t t-call="report.external_layout"></t>
+            </div>
+            <div class="page">
+            <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
+
+            <div class="mt32 mb32">
+              <table  style="border: 1px solid black; width:100%;" >
+                <tr class="border-black">
+                  <td style="border: 1px solid black;">
+                    <span>Firma Cliente:</span>
+                    <img t-att-src="'data:image/png;base64,%s' % o.signature_image_customer" style="max-height: 100px;"/>
+                  </td>
+                  <td style="border: 1px solid black;">
+                    <span>Firma Responsable:</span>
+                    <img t-att-src="'data:image/png;base64,%s' % o.signature_image_responsible" style="max-height: 100px;"/>
+                  </td>
+                  <td style="border: 1px solid black;">
+                    <span>Firma Técnico:</span>
+                    <img t-att-src="'data:image/png;base64,%s' % o.signature_image_technician" style="max-height: 100px;"/>
+                  </td>
+                </tr>
+              </table>
+            </div>
+            </div>
+
+          </t>
+        </t>
+    </template>
+</data>
+</openerp>
