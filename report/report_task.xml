@@ -15,7 +15,81 @@
             <t t-call="report.external_layout"></t>
             </div>
             <div class="page">
-            <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
+
+            <div class="col-xs-9 mt16" style="background:#FF0000">
+              <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
+              <span > PROTOCOLO DE INSPECCIÓN PARA G.E. </span>
+              </h3>
+            </div>
+
+            <div class="row zero_min_height">
+              <div class="col-xs-12">
+                <div style="border-bottom: 1px solid #FF0000;"/>
+              </div>
+            </div>
+
+            <div class="row mt32 mb32">
+              <div class="col-xs-6">
+                <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
+              </div>
+              <div class="col-xs-6 pull-right" style="background:#D8D8D8;">
+                <table class="table table-condensed" >
+                  <tr class="border-black">
+                  <div t-field="o.partner_id" t-field-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;, &quot;fax&quot;], &quot;no_marker&quot;: true}"/>
+                  </tr>
+                </table>
+              </div>
+            </div>
+
+            <div>
+              <table>
+                <h4 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0;">
+                <tr>
+
+                  <td style="width:20%">      
+                     <span > Revisión </span>
+                  </td>
+
+                  <td style="align:center; width:5%" t-foreach="o.type_ids" t-as="c">
+                    <span t-field="c.name"/>
+                  </td>
+
+                  <td style="width:20%">      
+                     <span > Comentarios </span>
+                  </td>
+
+                </tr>
+                </h4>
+              </table>           
+              
+
+            </div>
+
+            <div class="row zero_min_height">
+              <div class="col-xs-12">
+                <div style="border-bottom: 1px solid #FF0000;"/>
+              </div>
+            </div>
+
+
+              
+            <t t-foreach="o.tasks" t-as="t">
+            <table style="width:100%;" >
+              <tr>
+                <td style="width:20%">
+                <span t-field="t.name"/>
+                </td>
+                <td style="align:left; width:5%" t-foreach="o.type_ids" t-as="c">
+                  <input type="checkbox" name="vehicle" value="Car"/>
+                  <span t-field="t.sequence"/>
+                </td>
+                <td style="width:20%">
+                  <span t-field="t.description"/>
+                </td>
+              </tr>
+            </table>
+            </t>
+
 
             <div class="mt32 mb32">
               <table  style="border: 1px solid black; width:100%;" >
@@ -36,7 +110,6 @@
               </table>
             </div>
             </div>
-
           </t>
         </t>
     </template>
