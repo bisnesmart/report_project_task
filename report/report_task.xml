@@ -79,10 +79,15 @@
                 <td style="width:20%">
                 <span t-field="t.name"/>
                 </td>
+
+                <t t-set="p" t-value="5" />
+
                 <td style="align:left; width:5%" t-foreach="o.type_ids" t-as="c">
-                  <input type="checkbox" name="vehicle" value="Car"/>
-                  <span t-field="t.sequence"/>
+                  <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                  <t t-set="p" t-value=" p - 1" />
+                  <t t-esc="p" />
                 </td>
+
                 <td style="width:20%">
                   <span t-field="t.description"/>
                 </td>
