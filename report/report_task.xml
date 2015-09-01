@@ -17,6 +17,17 @@
             </div>
             <div class="page">
 
+            
+            <div class="oe_structure">
+
+            <div >
+              <h1 style="text-align:center; font-weight: bold;"> Protoclo de inspección y mantenimiento</h1>
+              <!--Hay que añadir na imagen en report_project_task/static/src/img/ con el nombre imagen-portadajpg"-->
+              <img style="display: block;margin-left: auto;margin-right: auto" class="img img-responsive mt32" src="report_project_task/static/src/img/imagen-portada.jpg"/>
+              </div>
+            </div>
+            <p style="page-break-after: always;"></p>
+
             <div class="col-xs-9 mt16" style="background:#FF0000">
               <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
               <span > PROTOCOLO DE INSPECCIÓN PARA G.E. </span>
