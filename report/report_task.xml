@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--Para que el informe funcione corecctamente hay que poner secuencias a las tareas (SI==100) (NO==110) (BIEN == 130) (REGULA==140) (MAL == 150)-->
 <openerp>
     <data>
       <!--Creo la opcion de imprimir en ela pantalla de proyectos-->
@@ -79,13 +80,50 @@
                 <td style="width:20%">
                 <span t-field="t.name"/>
                 </td>
-
+                <!--TODO: Consefuir el total de etaps que tiene el proyecto-->
                 <t t-set="p" t-value="5" />
+                <t t-set="Print" t-value="0" />
 
                 <td style="align:left; width:5%" t-foreach="o.type_ids" t-as="c">
-                  <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                  <!--TODO: Revisar el bucle para que se imprimia cuadrado aunque no se marque-->
+
+                  <!--SI-->
+                  <t t-if="p == 5">
+                    <t t-if=" t.sequence == 100">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <input type="checkbox" name="stage"/>
+                  </t>
+                  <!--NO-->
+                  <t t-if="p == 4">
+                    <t t-if=" t.sequence == 110">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <input type="checkbox" name="stage"/>
+                  </t>
+                  <!--BIEN-->
+                  <t t-if="p == 3">
+                    <t t-if=" t.sequence == 120">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <input type="checkbox" name="stage"/>
+                  </t>
+                  <!--REGULAR-->
+                  <t t-if="p == 2">
+                    <t t-if=" t.sequence == 130">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <input type="checkbox" name="stage"/>
+                  </t>
+                  <!--MAL-->
+                  <t t-if="p == 1">
+                    <t t-if=" t.sequence == 140">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <input type="checkbox" name="stage"/>
+                  </t>
+
                   <t t-set="p" t-value=" p - 1" />
-                  <t t-esc="p" />
                 </td>
 
                 <td style="width:20%">
