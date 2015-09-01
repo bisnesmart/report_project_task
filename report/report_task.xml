@@ -92,35 +92,45 @@
                     <t t-if=" t.sequence == 100">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
+                    <t t-if="p == 5 and t.sequence != 100">
                     <input type="checkbox" name="stage"/>
+                    </t>
                   </t>
                   <!--NO-->
                   <t t-if="p == 4">
                     <t t-if=" t.sequence == 110">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
+                    <t t-if="p == 4 and t.sequence != 110">
                     <input type="checkbox" name="stage"/>
+                    </t>
                   </t>
                   <!--BIEN-->
                   <t t-if="p == 3">
                     <t t-if=" t.sequence == 120">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
+                    <t t-if="p == 3 and t.sequence != 120">
                     <input type="checkbox" name="stage"/>
+                    </t>
                   </t>
                   <!--REGULAR-->
                   <t t-if="p == 2">
                     <t t-if=" t.sequence == 130">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
+                    <t t-if="p == 2 and t.sequence != 130">
                     <input type="checkbox" name="stage"/>
+                    </t>
                   </t>
                   <!--MAL-->
                   <t t-if="p == 1">
                     <t t-if=" t.sequence == 140">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
+                    <t t-if="p == 1 and t.sequence != 140">
                     <input type="checkbox" name="stage"/>
+                    </t>
                   </t>
 
                   <t t-set="p" t-value=" p - 1" />
