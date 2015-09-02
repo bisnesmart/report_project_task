@@ -17,7 +17,7 @@
             </div>
             <div class="page">
 
-            
+            <!--Empieza la portada-->
             <div class="oe_structure">
 
             <div >
@@ -27,7 +27,9 @@
               </div>
             </div>
             <p style="page-break-after: always;"></p>
+            <!--Final Portada-->
 
+            <div class="oe_structure">
             <div class="col-xs-9 mt16" style="background:#FF0000">
               <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
               <span > PROTOCOLO DE INSPECCIÓN PARA G.E. </span>
@@ -54,11 +56,11 @@
             </div>
 
             <div>
-              <table>
+              <table style="width:100%;" >
                 <h4 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0;">
                 <tr>
 
-                  <td style="width:20%">      
+                  <td style="width:15%">      
                      <span > Revisión </span>
                   </td>
 
@@ -84,62 +86,61 @@
             </div>
 
 
-              
-            <t t-foreach="o.tasks" t-as="t">
-            <table style="width:100%;" >
+          <span style="font-weight: bold;">ADMISIÓN Y ESCAPE</span>
+           <t t-foreach="o.tasks" t-as="t">
+           <t t-if="t.categ_ids.name == 'admision'"> 
+           <table style="width:100%;" >
               <tr>
-                <td style="width:20%">
+                <td style="width:15%">
                 <span t-field="t.name"/>
                 </td>
                 <!--TODO: Consefuir el total de etaps que tiene el proyecto-->
                 <t t-set="p" t-value="5" />
-                <t t-set="Print" t-value="0" />
 
                 <td style="align:left; width:5%" t-foreach="o.type_ids" t-as="c">
-                  <!--TODO: Revisar el bucle para que se imprimia cuadrado aunque no se marque-->
 
                   <!--SI-->
                   <t t-if="p == 5">
-                    <t t-if=" t.sequence == 100">
+                    <t t-if=" t.stage_id.name == 'SI'">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
-                    <t t-if="p == 5 and t.sequence != 100">
+                    <t t-if="p == 5 and t.stage_id.name != 'SI'">
                     <input type="checkbox" name="stage"/>
                     </t>
                   </t>
                   <!--NO-->
                   <t t-if="p == 4">
-                    <t t-if=" t.sequence == 110">
+                    <t t-if=" t.stage_id.name == 'NO'">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
-                    <t t-if="p == 4 and t.sequence != 110">
+                    <t t-if="p == 4 and t.stage_id.name != 'NO'">
                     <input type="checkbox" name="stage"/>
                     </t>
                   </t>
                   <!--BIEN-->
                   <t t-if="p == 3">
-                    <t t-if=" t.sequence == 120">
+                    <t t-if=" t.stage_id.name == 'BIEN'">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
-                    <t t-if="p == 3 and t.sequence != 120">
+                    <t t-if="p == 3 and t.stage_id.name != 'BIEN'">
                     <input type="checkbox" name="stage"/>
                     </t>
                   </t>
                   <!--REGULAR-->
                   <t t-if="p == 2">
-                    <t t-if=" t.sequence == 130">
+                    <t t-if=" t.stage_id.name == 'REG'">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
-                    <t t-if="p == 2 and t.sequence != 130">
+                    <t t-if="p == 2 and t.stage_id.name != 'REG'">
                     <input type="checkbox" name="stage"/>
                     </t>
                   </t>
                   <!--MAL-->
                   <t t-if="p == 1">
-                    <t t-if=" t.sequence == 140">
+                    <t t-if=" t.stage_id.name == 'MAL'">
                       <input type="checkbox" name="stage" value="checked" checked="checked"/>
                     </t>
-                    <t t-if="p == 1 and t.sequence != 140">
+                    <t t-if="p == 1 and t.stage_id.name != 'MAL'">
                     <input type="checkbox" name="stage"/>
                     </t>
                   </t>
@@ -153,6 +154,136 @@
               </tr>
             </table>
             </t>
+            </t>
+
+            <span style="font-weight: bold;">REFRIGERACIÓN</span>
+           <t t-foreach="o.tasks" t-as="t">
+           <t t-if="t.categ_ids.name == 'REFRIGERACION'"> 
+           <table style="width:100%;" >
+              <tr>
+                <td style="width:15%">
+                <span t-field="t.name"/>
+                </td>
+                <!--TODO: Consefuir el total de etaps que tiene el proyecto-->
+                <t t-set="p" t-value="5" />
+
+                <td style="align:left; width:5%" t-foreach="o.type_ids" t-as="c">
+
+                  <!--SI-->
+                  <t t-if="p == 5">
+                    <t t-if=" t.stage_id.name == 'SI'">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <t t-if="p == 5 and t.stage_id.name != 'SI'">
+                    <input type="checkbox" name="stage"/>
+                    </t>
+                  </t>
+                  <!--NO-->
+                  <t t-if="p == 4">
+                    <t t-if=" t.stage_id.name == 'NO'">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <t t-if="p == 4 and t.stage_id.name != 'NO'">
+                    <input type="checkbox" name="stage"/>
+                    </t>
+                  </t>
+                  <!--BIEN-->
+                  <t t-if="p == 3">
+                    <t t-if=" t.stage_id.name == 'BIEN'">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <t t-if="p == 3 and t.stage_id.name != 'BIEN'">
+                    <input type="checkbox" name="stage"/>
+                    </t>
+                  </t>
+                  <!--REGULAR-->
+                  <t t-if="p == 2">
+                    <t t-if=" t.stage_id.name == 'REG'">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <t t-if="p == 2 and t.stage_id.name != 'REG'">
+                    <input type="checkbox" name="stage"/>
+                    </t>
+                  </t>
+                  <!--MAL-->
+                  <t t-if="p == 1">
+                    <t t-if=" t.stage_id.name == 'MAL'">
+                      <input type="checkbox" name="stage" value="checked" checked="checked"/>
+                    </t>
+                    <t t-if="p == 1 and t.stage_id.name != 'MAL'">
+                    <input type="checkbox" name="stage"/>
+                    </t>
+                  </t>
+
+                  <t t-set="p" t-value=" p - 1" />
+                </td>
+
+                <td style="width:20%">
+                  <span t-field="t.description"/>
+                </td>
+              </tr>
+            </table>
+            </t>
+            </t>
+
+            </div>
+            <p style="page-break-after: always;"></p>
+            <!--Final del checklist-->
+
+            <!--Comienza las recomndaciones-->
+            <span><h2>Recomendaciones</h2></span> 
+
+            <div class="mt16">
+            <div class="col-xs-12 mt16" style="background:#FF0000">
+              <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
+              <span > Necesidad de correcciones (Urgencias ALTA) </span>
+              </h3>
+            </div>
+            <t t-foreach="o.tasks" t-as="t">
+            <t t-if=" t.stage_id.name == 'MAL'">
+            <table style="width:100%;">
+            <tr>
+            <span t-field="t.description"/>
+            </tr>
+            </table>
+            </t>
+            </t>
+            </div>
+
+            <div class="mt16">
+            <div class="col-xs-12 mt16" style="background:#FF9900">
+              <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
+              <span > Necesidad de correcciones (Urgencia MEDIA) </span>
+              </h3>
+            </div>
+            <t t-foreach="o.tasks" t-as="t">
+            <t t-if=" t.stage_id.name == 'REG'">
+            <table style="width:100%;">
+            <tr>
+            <span t-field="t.description"/>
+            </tr>
+            </table>
+            </t>
+            </t>
+            </div>
+
+            <div class="mt16">
+            <div class="col-xs-12 mt16" style="background:#339900">
+              <h3 style="font-weight: bold; font-style:italic; margin-top:0; margin-bottom:0; color:#FFFFFF;">
+              <span > Necesidad de correcciones (Urgencia BAJA) </span>
+              </h3>
+            </div>
+            <t t-foreach="o.tasks" t-as="t">
+            <t t-if=" t.stage_id.name == 'BIEN'">
+            <table style="width:100%;">
+            <tr>
+            <span t-field="t.description"/>
+            </tr>
+            </table>
+            </t>
+            </t>
+            </div>
+            
 
 
             <div class="mt32 mb32">
